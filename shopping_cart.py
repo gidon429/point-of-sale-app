@@ -23,18 +23,18 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#product_ids = []
+product_ids = []
 
-#while True:
-#    product_id = input("Hey please input a product identifier: ")
-#    if product_id == "DONE":
-#        break
-#    else:
-#        product_ids.append(product_id)
+while True:
+    product_id = input("Hey please input a product identifier: ")
+    if product_id == "DONE":
+        break
+    else:
+        product_ids.append(float(product_id))
 
-#print("--------------")
-#print(product_ids)
-#print("--------------")
+print("--------------")
+print(product_ids)
+print("--------------")
 
 import datetime
 now = datetime.datetime.now()
@@ -48,7 +48,7 @@ print("Checkout Time: " + now.strftime("%Y-%m-%d %H:%M:%S"))
 print("---------------------------")
 print("Shopping Cart Items:")
 
-product_ids = [3, 12, 10, 3, 5, 11]
+
 
 def matching_product(product_identifier):
     products_list = [p for p in products if p["id"] == product_identifier]
