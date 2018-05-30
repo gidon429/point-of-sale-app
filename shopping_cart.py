@@ -26,9 +26,11 @@ products = [
 product_ids = []
 
 while True:
-    product_id = input("Hey please input a product identifier: ")
+    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
     if product_id == "DONE":
         break
+    elif int(product_id) >= 21:
+        print("Hey, are you sure that product identifier is correct? Please try again!")
     else:
         product_ids.append(float(product_id))
 
@@ -40,9 +42,9 @@ import datetime
 now = datetime.datetime.now()
 
 print("---------------------------")
-print("MY GROCERY STORE")
+print("GIDON'S GROCERY STORE")
 print("---------------------------")
-print("Web: www.mystore.com")
+print("Web: www.gidonsgrocerystore.com")
 print("Phone: 1.123.456.7890")
 print("Checkout Time: " + now.strftime("%Y-%m-%d %H:%M:%S"))
 print("---------------------------")
@@ -59,7 +61,7 @@ raw_total = 0
 for pid in product_ids:
     product = matching_product(pid)
     raw_total += product["price"]
-    print(str(product["id"]) + " " + product["name"]+ " " + str(product["price"]))
+    print(" + " + product["name"] + " ($" + str(round(product["price"],2)) +")")
 
 tax = 0.08875
 sales_tax = int(raw_total * tax)
@@ -67,6 +69,6 @@ sales_tax = int(raw_total * tax)
 print("---------------------------")
 print("Subtotal: $" + str(round(raw_total,2)))
 print("Plus NYC Sales Tax (" + str(tax * 100) + "%): $" + str(round(int(raw_total) * tax,2)))
-print("Total: $" + str(round(sales_tax,2) + round(raw_total,2)))
+print("Total: $" + str(round(sales_tax + raw_total,2)))
 print("---------------------------")
 print("Thanks for your business! Please come again.")
